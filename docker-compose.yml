@@ -10,15 +10,8 @@ services:
             - ./redis_config/redis.conf:/usr/local/etc/redis/redis.conf
             - ./redis_data/:/data/
     judge_server1:
-        image: hwz634473223/judge_server
+        image: hwz634473223/judge_server:local
         restart: always
-        cap_drop:
-            - SETPCAP
-            - MKNOD
-            - NET_BIND_SERVICE
-            - SYS_CHROOT
-            - SETFCAP
-            - FSETID
         depends_on:
           - redis
         tmpfs:
